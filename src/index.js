@@ -7,7 +7,7 @@ import SignupForm from './components/signUp-form';
 
 ReactDOM.render(
     <Provider>
-        <SignupForm /> 
+        <SignupForm />, 
     </Provider>,
     document.getElementById('root')
     );

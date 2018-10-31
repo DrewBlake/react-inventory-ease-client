@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 
-export class SignupForm extends React.Component {
+export default class SignupForm extends React.Component {
     render() {
         return (
             <form >
@@ -20,4 +20,4 @@ export class SignupForm extends React.Component {
     }
 }
 
-export default connect()(SignupForm);
+//export default(SignupForm);
