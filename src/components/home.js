@@ -5,7 +5,7 @@ import SearchIdForm from './searchId-form';
 import AddInventoryForm from './addInventory-form';
 import SearchAll from './searchAll';
 import Footer from './footer';
-import {logOut} from '../actions';
+import {logOut, getAllVehicles} from '../actions';
 
 //import NavBar from './nav-bar';
 

@@ -35,12 +35,12 @@ export class SignUpFormPage extends React.Component {
                         <div>
                             <label htmlFor="first-name">First name</label>
                             <input placeholder='First Name' type="text" name='first-name' id='first-name' 
-                               ref={input => (this.firstName = input)} required />
+                               ref={input => (this.firstName = input)} />
                         </div>
                         <div>
                             <label htmlFor="last-name">Last name</label>
                             <input type="text" name='last-name' id='last-name' placeholder='Last Name' 
-                                ref={input => (this.lastName = input)} required />
+                                ref={input => (this.lastName = input)} />
                         </div>
                         <div>
                             <label htmlFor="username">Username</label>

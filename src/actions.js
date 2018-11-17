@@ -44,3 +44,38 @@ export const addVehicle = (year, make, model, mileage, parkingSpace, id, isNew) 
 	id,
 	isNew
 });
+
+export const GET_ALL_VEHICLES_SUCCESS = 'GET_ALL_VEHICLES_SUCCESS';
+export const getAllVehiclesSuccess = (response) => ({
+	type: 'GET_ALL_VEHICLES_SUCCESS',
+	vehicles: response
+
+});
+
+
+export const GET_ALL_VEHICLES = 'GET_ALL_VEHICLES';
+export const getAllVehicles = () => (dispatch) => {
+	fetch({
+		url: '/',
+		method: 'GET'
+	}).then((response) => {
+		dispatch(getAllVehiclesSuccess(response))
+	})
+
+};
+
+export const GET_VEHICLE_ID_SUCCESS = 'GET_VEHICLE_ID_SUCCESS';
+export const getVehicleIdSuccess = (response) => ({ 
+	type: 'GET_VEHICLE_ID_SUCCESS',
+	vehicle: response
+});
+
+export const GET_VEHICLE_ID = 'GET_VEHICLE_ID';
+export const getVehicleId = (id) => (dispatch) => { 
+	fetch({
+		url: `/${id}`,
+		method: 'GET'
+	}).then((response) => {
+		dispatch(getVehicleIdSuccess(response))
+	})
+};
