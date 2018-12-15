@@ -10,17 +10,18 @@ import {logOut, getAllVehicles} from '../actions';
 //import NavBar from './nav-bar';
 
 export class HomePage extends React.Component {
-    constructor(props) {
+    /*constructor(props) {
         super(props)
         this.state = {
             isShow: false
         }
-    }
+    }*/
 
     displayAll() {
-        this.setState({
+        this.props.dispatch(getAllVehicles());
+      /*  this.setState({
             isShow: true
-        });
+        });*/
     }
 
     
@@ -32,7 +33,7 @@ export class HomePage extends React.Component {
                     <Link to='/' onClick={()=>this.dispatch(logOut())}>Log Out</Link>       
                 </nav>
                 <SearchAll displayAll={()=>this.displayAll()} 
-                    isShow={this.state.isShow} 
+                    isShow={this.props.isShow} 
                     autos={this.props.vehicles} />
                 <SearchIdForm />
                 <AddInventoryForm />
@@ -44,7 +45,7 @@ export class HomePage extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-       
+        isShow: state.isShow,
         vehicles: state.vehicles
     }
 };

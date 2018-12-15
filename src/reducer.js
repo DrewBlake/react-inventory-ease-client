@@ -1,90 +1,97 @@
-import {CHECK_LOGIN, LOG_OUT, DELETE_VEHICLE, 
-		UPDATE_VEHICLE, SIGN_UP, ADD_VEHICLE} from './actions';
+import {CHECK_LOGIN_SUCCESS, LOG_OUT, 
+	GET_ALL_VEHICLES_SUCCESS, GET_VEHICLE_ID_SUCCESS,
+	SHOW_ERROR, CHECK_LOGIN_ERROR, GET_VEHICLE_ID_ERROR,
+	RESET_ERROR, ADD_VEHICLE_MESSAGE, 
+	SIGN_UP_SUCCESS} from './actions';
 
 const initialState = {
-	users: [
-		{
-			userName: 'dBlake',
-			password: 'MANG1974'
-		},
-		{
-			userName: 'kStacy',
-			password: 'KDIDDY1969'
-		}
-	],
+	signUpError: '',
+	errorMessage: '',
+	message: '',
 	validUser: false,
-	vehicles: [
-		{
-			id: '000aaa',
-			year: 1996,
-			make: 'acura',
-			model: 'rl',
-			mileage: '197,554 miles',
-			isNew: false,
-			parkingSpace: '22r'
-		},
-		{
-			id: '001aaa',
-			year: 2004,
-			make: 'nissan',
-			model: 'altima',
-			mileage: '87,998 miles',
-			isNew: false,
-			parkingSpace: '9a'
-		}
-	]
+	vehicles: [],
+	singleVehicle: {},
+	validVehicleId: false,
+	isShow: false,
+	authToken: null
 };
 
 export default (state = initialState, action) => {
-	if (action.type === SIGN_UP) {
-		console.log('sign up success');
+	
+
+	if (action.type === CHECK_LOGIN_SUCCESS) {
+			return Object.assign({}, state, {
+				validUser: true,
+				errorMessage: '',
+				signUpError: '',
+				authToken: action.authToken
+			});
 	}
 
-	if (action.type === CHECK_LOGIN) {
-		
-		const isValid = state.users.filter(user => {
-			console.log(user.userName);
-			console.log(action.username);
-			return user.userName === action.username && user.password === action.password;
-				
-			
+	if (action.type === CHECK_LOGIN_ERROR) {
+		return Object.assign({}, state, {
+			errorMessage: action.message
 		});
-		
-		if (isValid[0]) {
-			console.log('valid user');
-			return Object.assign({}, state, {
-				validUser: true
-			});
-		}
+	}
 
+	if (action.type === SHOW_ERROR) {
+		return Object.assign({}, state, {
+			signUpError: action.error
+		});
+	}
+
+	if (action.type === SIGN_UP_SUCCESS) {
+		return Object.assign({}, state, {
+			signUpError: 'Sign Up Successful! Return to home page to sign in.',
+			errorMessage: ''
+		});
+	}
+
+	if (action.type === RESET_ERROR) {
+		return Object.assign({}, state, {
+			errorMessage: ''
+		});
+	}
+
+
+	if (action.type === ADD_VEHICLE_MESSAGE) {
+		return Object.assign({}, state, {
+			message: action.message
+		});
 	}
 
 	if (action.type === LOG_OUT) {
 		return Object.assign({}, state, {
-				validUser: false
+				validUser: false,
+				authToken: null
 			});
 	}
 
-	if (action.type === DELETE_VEHICLE) {
-		const findId = state.vehicles.filter(vehicle => {
-			console.log(vehicle.id);
-			console.log(action.id);
-			return vehicle.id === action.id;
+
+	if (action.type === GET_ALL_VEHICLES_SUCCESS) {
+		return Object.assign({}, state, {
+			vehicles: action.vehicles,
+			validVehicleId: false,
+			errorMessage: '',
+			isShow: true
 		});
-		console.log(findId);
-		if(findId[0]) {
-			console.log('deleted vehicle success');
-		}
-			
 	}
 
-	if (action.type === UPDATE_VEHICLE) {
-		console.log('updated vehicle success');
+	if (action.type === GET_VEHICLE_ID_SUCCESS) {
+		return Object.assign({}, state, {
+			singleVehicle: action.vehicle,
+			validVehicleId: true,
+			errorMessage: ''
+		});
 	}
 
-	if (action.type === ADD_VEHICLE) {
-		console.log('vehicle added success');
+	if (action.type === GET_VEHICLE_ID_ERROR) {
+		return Object.assign({}, state, {
+			validVehicleId: false,
+			errorMessage: action.message
+		});
 	}
+
 
 	return state;
 		

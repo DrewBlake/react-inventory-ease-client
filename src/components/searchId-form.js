@@ -11,7 +11,9 @@ export class SearchIdForm extends React.Component {
             auto: [],      
             isActive: false,
             displayDelete: false,
-            id: ''
+            id: '',
+            mileage: 'mileage: ',
+            parkingSpace: 'Parking Space: '
         }
     }
 
@@ -25,17 +27,18 @@ export class SearchIdForm extends React.Component {
     onSubmit(event) {
         event.preventDefault();
         this.displayButton();
-        const value = this.id.value;
+        const value = this.id.value.trim();
         console.log(value);
-        const auto = this.props.vehicles.filter((auto) => {
-            return auto.id === value;
-        });
+
+        this.props.dispatch(getVehicleId(value));
+        //const auto = this.props.vehicles[0];
+        console.log(this.props.validVehicleId);
         this.setState({
-            auto: auto[0]?auto[0]:null,
+            //auto: true,
             displayDelete: false,
             id: value
         });
-        console.log(auto[0]);
+        
         this.id.value = '';
     }
 
@@ -55,7 +58,13 @@ export class SearchIdForm extends React.Component {
         event.preventDefault();
         const mileage = this.miles.value;
         const parkingSpace = this.spot.value;
-        this.props.dispatch(updateVehicle(this.state.id, mileage, parkingSpace));
+        const id = this.state.id;
+        const updateInfo = {
+            id,
+            mileage,
+            parkingSpace
+        }
+        this.props.dispatch(updateVehicle(updateInfo));
         this.miles.value = '';
         this.spot.value = '';
     }
@@ -68,6 +77,7 @@ export class SearchIdForm extends React.Component {
                 <header>
                     <h2>Search By Vehicle ID</h2>
                     <h3>Gives information for specific vehicle selected</h3>
+                    <h3>Allows you to update vehicle info</h3>
                 </header>
                 <form onSubmit={(e) => this.onSubmit(e)}>   
                     <label htmlFor="id">Enter ID</label>
@@ -76,11 +86,13 @@ export class SearchIdForm extends React.Component {
                     <button type='submit'>Search</button>
                 </form>
 
-                {!(this.state.auto)&&<h2>Enter valid Id</h2>}
-                {this.state.auto&&
+                {!(this.props.validVehicleId)&&<h2>{this.props.errorMessage}</h2>}
+                {this.props.validVehicleId&&
                 <div>
 
-                    <h2>{this.state.auto.year} {this.state.auto.make} {this.state.auto.model} {this.state.auto.mileage}</h2>
+                    <h3>{this.props.auto.year} {this.props.auto.make} {this.props.auto.model}</h3>
+                    <h4>{this.state.mileage} {this.props.auto.mileage}</h4>
+                    <h4>{this.state.parkingSpace} {this.props.auto.parkingSpace}</h4>
                         <div className={this.state.isActive?'show':'hidden'}>
                             <button onClick={() => this.removeVehicle()}>Delete vehicle</button>
                             
@@ -88,13 +100,14 @@ export class SearchIdForm extends React.Component {
                             <form onSubmit={(e) => this.submitUpdate(e)}>
                                 <label htmlFor='miles'>Update Miles</label>
                                 <input type='text' name='miles' id='miles' 
-                                    ref={input => this.miles = input} />
+                                    ref={input => this.miles = input} required/>
                                 <label htmlFor='spot'>Update Parking Spot</label>
                                 <input type='text' name='spot' id='spot'
-                                    ref={input => this.spot = input} />
+                                    ref={input => this.spot = input} required/>
                                 <button type='submit'>Update</button>
                             </form>
                         </div>
+                        <h3>{this.props.errorMessage}</h3>
                         <h2 className={this.state.displayDelete?'show':'hidden'}>Vehicle Deleted</h2>
                 </div> }
 
@@ -105,8 +118,10 @@ export class SearchIdForm extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        
-        vehicles: state.vehicles
+        auto: state.singleVehicle || {},
+        vehicles: state.vehicles,
+        validVehicleId: state.validVehicleId,
+        errorMessage: state.errorMessage || ''
     }
 };
 

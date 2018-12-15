@@ -13,6 +13,7 @@
   
   nav,
   footer { 
+    color: white;
     padding: 1% 0;
     background-color: rgb(29, 28, 28);
   }

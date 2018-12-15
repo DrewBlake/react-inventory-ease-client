@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Footer from './footer';
-import {signUp} from '../actions';
+import {signUp, checkLogIn} from '../actions';
 import './signUp-form.css';
 
 
@@ -13,7 +13,19 @@ export class SignUpFormPage extends React.Component {
         const lastName = this.lastName.value;
         const username = this.userName.value;
         const password = this.password.value;
-        this.props.dispatch(signUp(firstName, lastName, username, password));
+        const user = {
+            firstName,
+            lastName,
+            username,
+            password
+        };
+        this.props.dispatch(signUp(user));
+        const user1 = {
+            username,
+            password
+        };
+        
+        this.props.dispatch(checkLogIn(user1));
         this.firstName.value = '';
         this.lastName.value = '';
         this.userName.value = '';
@@ -23,7 +35,7 @@ export class SignUpFormPage extends React.Component {
         return (
            <main role="main">
                 <nav role='navigation'>
-                    <Link to='/'>Back</Link>
+                    <Link to='/' >Back</Link>
                 </nav>
                 <header role="banner">
                     <h1>Sign Up</h1>
@@ -54,10 +66,20 @@ export class SignUpFormPage extends React.Component {
                         </div>
                         <button type='submit'>Sign Up</button>
                     </form>
+                    <h3>{this.props.signUpError}</h3>
                     <Footer />
             </main>
         );
     }
 }
 
-export default connect()(SignUpFormPage);
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+        signUpError: state.signUpError || '',
+        validUser: state.validUser,
+        user: state.user
+    }
+};
+
+export default connect(mapStateToProps)(SignUpFormPage);

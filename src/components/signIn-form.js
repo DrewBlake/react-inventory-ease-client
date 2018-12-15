@@ -7,24 +7,28 @@ import {checkLogIn} from '../actions';
 
 
 export class SignInForm extends React.Component {
-    constructor(props) {
+    /*constructor(props) {
         super(props);
         this.state = {
             errorMsg: false
         }
-    }
+    }*/
 
     onSubmit(event) {
         event.preventDefault();
         const username = this.username.value;
         const password = this.password.value;
+        const user = {
+            username,
+            password
+        };
         
-        this.props.dispatch(checkLogIn(username, password));
-        if (!this.validUser) {
+        this.props.dispatch(checkLogIn(user));
+        /*if (!this.validUser) {
                 this.setState({
                 errorMsg: true
             });
-        }
+        }*/
         
         this.username.value = '';
         this.password.value = '';
@@ -34,7 +38,7 @@ export class SignInForm extends React.Component {
             <div>
                 
                 <nav role='navigation'>
-                    <Link to='/'>Back</Link>
+                    <Link to='/' >Back</Link>
                 </nav>
                     <section>
                         <header>
@@ -58,7 +62,7 @@ export class SignInForm extends React.Component {
                             <button type='submit'>Sign In</button>
                             
                         </form>
-                        <h3 className={this.state.errorMsg?'show':'hidden'}>Enter Valid Username and Password</h3>
+                        <h3>{this.props.errorMessage}</h3>
                     </section>
                   
                 <Footer /> 
@@ -68,7 +72,9 @@ export class SignInForm extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
+        errorMessage: state.errorMessage || '',
         validUser: state.validUser,
         user: state.user
     }

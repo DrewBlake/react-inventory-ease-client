@@ -11,19 +11,28 @@ export class AddInventoryForm extends React.Component {
         const year = this.year.value;
         const make = this.make.value;
         const model = this.model.value;
-        const mileage = this.model.value;
+        const mileage = this.mileage.value;
         const parkingSpace = this.location.value;
-        const id = this.id.value;
-        const isNew = this.isNew.value;
+       // const vehicleId = this.id.value;
+        const newVehicle = this.isNew.value;
+        const vehicleInfo = {
+           // vehicleId,
+            year,
+            make,
+            model,
+            mileage,
+            parkingSpace,
+            newVehicle
+        }
 
-        this.props.dispatch(addVehicle(year, make, model, mileage, parkingSpace, id, isNew));
+        this.props.dispatch(addVehicle(vehicleInfo));
 
         this.year.value = '';
         this.make.value = '';
         this.model.value = '';
         this.mileage.value = '';
         this.location.value = '';
-        this.id.value = '';
+        //this.id.value = '';
         this.isNew.value = '';
         
     }
@@ -57,11 +66,7 @@ export class AddInventoryForm extends React.Component {
                         <input type="text" name='mileage' id='mileage' 
                             ref={input => this.mileage = input} required />
                     </div>
-                    <div>
-                        <label htmlFor="id">Id</label>
-                        <input type="text" name='id' id='id' 
-                            ref={input => this.id = input} required />
-                    </div>
+                    
                     <div>
                         <label htmlFor="location">Parking space</label>
                         <input type="text" name='location' id='location' 
@@ -74,9 +79,18 @@ export class AddInventoryForm extends React.Component {
                     </div>
                     <button type='submit'>Enter</button>
                 </form>
+                <h3>{this.props.message}</h3>
             </section>
         );
     }
 }
 
-export default connect()(AddInventoryForm);
+const mapStateToProps = (state) => {
+    return {
+        isShow: state.isShow,
+        message: state.message || '',
+        vehicles: state.vehicles
+    }
+};
+
+export default connect(mapStateToProps)(AddInventoryForm);
