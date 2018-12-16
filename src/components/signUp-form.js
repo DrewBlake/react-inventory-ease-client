@@ -20,16 +20,10 @@ export class SignUpFormPage extends React.Component {
             password
         };
         this.props.dispatch(signUp(user));
-        const user1 = {
-            username,
-            password
-        };
-        
-        this.props.dispatch(checkLogIn(user1));
-        this.firstName.value = '';
-        this.lastName.value = '';
-        this.userName.value = '';
-        this.password.value = '';
+        firstName = '';
+        lastName = '';
+        username = '';
+        password = '';
     }
     render() {
         return (

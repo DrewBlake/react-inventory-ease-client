@@ -86,7 +86,7 @@ export class SearchIdForm extends React.Component {
                     <button type='submit'>Search</button>
                 </form>
 
-                {!(this.props.validVehicleId)&&<h2>{this.props.errorMessage}</h2>}
+                {!(this.props.validVehicleId)&&<h3>{this.props.errorMessage}</h3>}
                 {this.props.validVehicleId&&
                 <div>
 
@@ -107,7 +107,8 @@ export class SearchIdForm extends React.Component {
                                 <button type='submit'>Update</button>
                             </form>
                         </div>
-                        <h3>{this.props.errorMessage}</h3>
+                        <h3>{this.props.signUpError}</h3>
+                        <h3>{this.props.message}</h3>
                         <h2 className={this.state.displayDelete?'show':'hidden'}>Vehicle Deleted</h2>
                 </div> }
 
@@ -121,7 +122,9 @@ const mapStateToProps = (state) => {
         auto: state.singleVehicle || {},
         vehicles: state.vehicles,
         validVehicleId: state.validVehicleId,
-        errorMessage: state.errorMessage || ''
+        errorMessage: state.errorMessage || '',
+        signUpError: state.signUpError || '',
+        message: state.message || '' 
     }
 };
 

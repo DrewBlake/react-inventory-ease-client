@@ -1,13 +1,14 @@
 import {CHECK_LOGIN_SUCCESS, LOG_OUT, 
 	GET_ALL_VEHICLES_SUCCESS, GET_VEHICLE_ID_SUCCESS,
 	SHOW_ERROR, CHECK_LOGIN_ERROR, GET_VEHICLE_ID_ERROR,
-	RESET_ERROR, ADD_VEHICLE_MESSAGE, 
+	ADD_SUCCESS_MESSAGE, ADD_VEHICLE_MESSAGE, 
 	SIGN_UP_SUCCESS} from './actions';
 
 const initialState = {
 	signUpError: '',
 	errorMessage: '',
 	message: '',
+	successMessage: '',
 	validUser: false,
 	vehicles: [],
 	singleVehicle: {},
@@ -24,13 +25,14 @@ export default (state = initialState, action) => {
 				validUser: true,
 				errorMessage: '',
 				signUpError: '',
+				message: '',
 				authToken: action.authToken
 			});
 	}
 
 	if (action.type === CHECK_LOGIN_ERROR) {
 		return Object.assign({}, state, {
-			errorMessage: action.message
+			message: action.message
 		});
 	}
 
@@ -47,16 +49,17 @@ export default (state = initialState, action) => {
 		});
 	}
 
-	if (action.type === RESET_ERROR) {
-		return Object.assign({}, state, {
-			errorMessage: ''
-		});
-	}
-
 
 	if (action.type === ADD_VEHICLE_MESSAGE) {
 		return Object.assign({}, state, {
-			message: action.message
+			message: action.message,
+			successMessage: ''
+		});
+	}
+
+	if (action.type === ADD_SUCCESS_MESSAGE) {
+		return Object.assign({}, state, {
+			successMessage: action.message
 		});
 	}
 
@@ -73,6 +76,7 @@ export default (state = initialState, action) => {
 			vehicles: action.vehicles,
 			validVehicleId: false,
 			errorMessage: '',
+			message: '',
 			isShow: true
 		});
 	}
@@ -81,7 +85,9 @@ export default (state = initialState, action) => {
 		return Object.assign({}, state, {
 			singleVehicle: action.vehicle,
 			validVehicleId: true,
-			errorMessage: ''
+			errorMessage: '',
+			signUpError: '',
+			message: ''
 		});
 	}
 

@@ -80,6 +80,7 @@ export class AddInventoryForm extends React.Component {
                     <button type='submit'>Enter</button>
                 </form>
                 <h3>{this.props.message}</h3>
+                <h3>{this.props.successMessage}</h3>
             </section>
         );
     }
@@ -89,6 +90,7 @@ const mapStateToProps = (state) => {
     return {
         isShow: state.isShow,
         message: state.message || '',
+        successMessage: state.successMessage || '',
         vehicles: state.vehicles
     }
 };

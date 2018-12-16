@@ -53,7 +53,6 @@ export const signUp = (user) => (dispatch) => {
 	}).catch((error) => {
 		const {message} = error;
 		dispatch(showError(message));
-		console.log(message);
 	});
 };
 
@@ -80,7 +79,6 @@ export const checkLogIn = (user) => (dispatch) => {
 	})
 	.then(res => res.json())	
 	.then(res => {	
-		console.log(res);
 		dispatch(checkLogInSuccess(res.authToken));
 	})
 	.catch((error) => {
@@ -131,13 +129,19 @@ export const updateVehicle = (updateInfo) => (dispatch, getState) => {
 		dispatch(getAllVehicles())
 	}).catch((error) => {
 		const message = 'Parking space taken! Check vehicle location.';
-		dispatch(checkLogInError(message));
+		dispatch(showError(message));
 	});
 };
 
 export const ADD_VEHICLE_MESSAGE = 'ADD_VEHICLE_SUCCESS';
 export const addVehicleMessage = (message) => ({
 	type: ADD_VEHICLE_MESSAGE,
+	message
+});
+
+export const ADD_SUCCESS_MESSAGE = 'ADD_SUCCESS_MESSAGE';
+export const addSuccessMessage = (message) => ({
+	type: ADD_SUCCESS_MESSAGE,
 	message
 });
 
@@ -155,7 +159,7 @@ export const addVehicle = (vehicle) => (dispatch, getState) => {
 			return Promise.reject(res.statusText);
 		}
 		const message1 = 'Vehicle added successfully!';
-		dispatch(addVehicleMessage(message1));
+		dispatch(addSuccessMessage(message1));
 	}).then(() => {
 		dispatch(getAllVehicles());	
 	}).catch((error) => {

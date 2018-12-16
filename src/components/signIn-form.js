@@ -7,13 +7,7 @@ import {checkLogIn} from '../actions';
 
 
 export class SignInForm extends React.Component {
-    /*constructor(props) {
-        super(props);
-        this.state = {
-            errorMsg: false
-        }
-    }*/
-
+    
     onSubmit(event) {
         event.preventDefault();
         const username = this.username.value;
@@ -24,12 +18,7 @@ export class SignInForm extends React.Component {
         };
         
         this.props.dispatch(checkLogIn(user));
-        /*if (!this.validUser) {
-                this.setState({
-                errorMsg: true
-            });
-        }*/
-        
+       
         this.username.value = '';
         this.password.value = '';
     }
@@ -62,7 +51,7 @@ export class SignInForm extends React.Component {
                             <button type='submit'>Sign In</button>
                             
                         </form>
-                        <h3>{this.props.errorMessage}</h3>
+                        <h3>{this.props.message}</h3>
                     </section>
                   
                 <Footer /> 
@@ -72,9 +61,8 @@ export class SignInForm extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
-        errorMessage: state.errorMessage || '',
+        message: state.message || '',
         validUser: state.validUser,
         user: state.user
     }
