@@ -24,17 +24,19 @@ export class SignInForm extends React.Component {
     }
     render() {
         return (
-            <div>
+            <main>
                 
                 <nav role='navigation'>
-                    <Link to='/' >Back</Link>
+                    <div className="link">
+                        <Link to='/' >Back</Link>
+                    </div>
+                    <p className="title">Inventory Ease</p>
                 </nav>
-                    <section>
-                        <header>
-                            <h1>Sign In</h1>
-                            <h3>Start your search or inventory update.</h3>
-                        </header>
-                                  
+                <header>
+                    <h2>Sign In</h2>
+                    <h3>Start your search or inventory update.</h3>
+                </header>
+                    <div>                            
                         <form onSubmit={e => this.onSubmit(e)}>
                             
                             <div>
@@ -48,14 +50,13 @@ export class SignInForm extends React.Component {
                                 ref={input => this.password = input}required />
                             </div>
                             
-                            <button type='submit'>Sign In</button>
-                            
+                            <button type='submit'>Sign In</button>                
                         </form>
                         <h3>{this.props.message}</h3>
-                    </section>
+                    </div>
                   
                 <Footer /> 
-            </div>       
+            </main>       
         );
     }
 }

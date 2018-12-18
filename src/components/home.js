@@ -30,7 +30,10 @@ export class HomePage extends React.Component {
         return(
             <div>
                 <nav role='navigation'>
-                    <Link to='/' onClick={()=>this.dispatch(logOut())}>Log Out</Link>       
+                    <div className="link">
+                        <Link to='/' onClick={()=>this.dispatch(logOut())}>Log Out</Link>       
+                    </div>
+                    <p className="title">Inventory Ease</p>
                 </nav>
                 <SearchAll displayAll={()=>this.displayAll()} 
                     isShow={this.props.isShow} 

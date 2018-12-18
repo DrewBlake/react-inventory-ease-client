@@ -38,7 +38,7 @@ export class AddInventoryForm extends React.Component {
     }
     render() {
         return (
-            <section>
+            <main>
                 <header>
                 <h2>Add Inventory</h2>
                 <h3>For recently purchased or traded in vehicles that
@@ -81,7 +81,7 @@ export class AddInventoryForm extends React.Component {
                 </form>
                 <h3>{this.props.message}</h3>
                 <h3>{this.props.successMessage}</h3>
-            </section>
+            </main>
         );
     }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Footer from './footer';
-import {signUp, checkLogIn} from '../actions';
+import {signUp} from '../actions';
 import './signUp-form.css';
 
 
@@ -20,19 +20,22 @@ export class SignUpFormPage extends React.Component {
             password
         };
         this.props.dispatch(signUp(user));
-        firstName = '';
-        lastName = '';
-        username = '';
-        password = '';
+        this.firstName.value = '';
+        this.lastName.value = '';
+        this.username.value = '';
+        this.password.value = '';
     }
     render() {
         return (
            <main role="main">
                 <nav role='navigation'>
-                    <Link to='/' >Back</Link>
+                    <div className="link">
+                        <Link to='/' >Back</Link>
+                    </div>
+                    <p className="title">Inventory Ease</p>
                 </nav>
                 <header role="banner">
-                    <h1>Sign Up</h1>
+                    <h2>Sign Up</h2>
                     <h3>Get access to all your inventory needs.</h3>
                 </header>
                 
