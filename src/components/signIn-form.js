@@ -32,7 +32,7 @@ export class SignInForm extends React.Component {
                     </div>
                     <p className="title">Inventory Ease</p>
                 </nav>
-                <header>
+                <header className="inUpHeader">
                     <h2>Sign In</h2>
                     <h3>Start your search or inventory update.</h3>
                 </header>

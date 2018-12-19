@@ -22,7 +22,7 @@ export class SignUpFormPage extends React.Component {
         this.props.dispatch(signUp(user));
         this.firstName.value = '';
         this.lastName.value = '';
-        this.username.value = '';
+        this.userName.value = '';
         this.password.value = '';
     }
     render() {
@@ -34,9 +34,9 @@ export class SignUpFormPage extends React.Component {
                     </div>
                     <p className="title">Inventory Ease</p>
                 </nav>
-                <header role="banner">
+                <header className="inUpHeader" role="banner">
                     <h2>Sign Up</h2>
-                    <h3>Get access to all your inventory needs.</h3>
+                    <h3>Get access to all your inventory needs</h3>
                 </header>
                 
                     

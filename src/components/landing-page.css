@@ -29,7 +29,7 @@ body {
     font-family: "Open Sans",
     sans-serif;
     font-size: 20px;
-    /*color: #444;*/
+    color: white;
     text-align: center;
     line-height: 1.5;
   }
@@ -68,8 +68,12 @@ body {
   }
 
   .landingTitle {
-    background-color: rgba(224, 224, 209, 0.4);
+    background-color: rgba(224, 224, 209, 0.8);
     border-radius: 15px;
+  }
+
+  .inUpHeader {
+    color: white;
   }
 
   section {
@@ -80,9 +84,9 @@ body {
     margin-top: 10px;
     margin-bottom: 25px;
     padding: 30px 15px;
-    color: black;
+    /*color: black;*/
     min-height: 200px;
-    background-color: rgba(224, 224, 209, 0.7);
+   /* background-color: rgba(224, 224, 209, 0.7);*/
    /* background-color: #444;*/
   }
 

@@ -12,7 +12,7 @@ export default function SearchAll(props) {
         
         <main role="main">
             <header role="banner">
-                <h1>Access Granted!</h1> 
+                <h2>Access Granted!</h2> 
                 <h3>Search for existing vehicles</h3>
                 <h3>Add new inventory</h3>    
             </header>
