@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 import {deleteVehicle, updateVehicle, getVehicleId} from '../actions';
 
 
@@ -26,10 +28,13 @@ export class SearchIdForm extends React.Component {
    
     onSubmit(event) {
         event.preventDefault();
+        
         this.displayButton();
         const value = this.id.value.trim();
         console.log(value);
-
+        console.log(this.props.validUser);
+        console.log(this.props.authToken);
+        
         this.props.dispatch(getVehicleId(value));
         //const auto = this.props.vehicles[0];
         console.log(this.props.validVehicleId);
@@ -71,9 +76,13 @@ export class SearchIdForm extends React.Component {
      
 
     render() { 
-          
+        if (this.props.authToken === null) {
+            console.log('logout!');
+            return <Redirect to='/' />;           
+        } 
         return (
             <div>
+                <section className="info">
                 <header>
                     <h2>Search By Vehicle ID</h2>
                     <h3>Gives information for specific vehicle selected</h3>
@@ -89,15 +98,17 @@ export class SearchIdForm extends React.Component {
                 {!(this.props.validVehicleId)&&<h3>{this.props.errorMessage}</h3>}
                 {this.props.validVehicleId&&
                 <div>
-
+                    <div className="vehicleList">
                     <h3>{this.props.auto.year} {this.props.auto.make} {this.props.auto.model}</h3>
                     <h4>{this.state.mileage} {this.props.auto.mileage}</h4>
                     <h4>{this.state.parkingSpace} {this.props.auto.parkingSpace}</h4>
+                    </div>
                         <div className={this.state.isActive?'show':'hidden'}>
-                            <button onClick={() => this.removeVehicle()}>Delete vehicle</button>
+                            <button onClick={() => this.removeVehicle()}>Delete</button>
                             
-                            <h2>Update Vehicle Info</h2>
+                            
                             <form onSubmit={(e) => this.submitUpdate(e)}>
+                                <h3 className="updateTitle">Update Vehicle Info</h3>
                                 <label htmlFor='miles'>Update Miles</label>
                                 <input type='text' name='miles' id='miles' 
                                     ref={input => this.miles = input} required/>
@@ -111,7 +122,7 @@ export class SearchIdForm extends React.Component {
                         <h3>{this.props.message}</h3>
                         <h2 className={this.state.displayDelete?'show':'hidden'}>Vehicle Deleted</h2>
                 </div> }
-
+                </section>
             </div>        
         );
     }   
@@ -124,7 +135,9 @@ const mapStateToProps = (state) => {
         validVehicleId: state.validVehicleId,
         errorMessage: state.errorMessage || '',
         signUpError: state.signUpError || '',
-        message: state.message || '' 
+        message: state.message || '',
+        validUser: state.validUser,
+        authToken: state.authToken 
     }
 };
 

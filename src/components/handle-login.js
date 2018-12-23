@@ -7,7 +7,7 @@ export function HandleLogIn(props) {
 	console.log('HandleLogIn');
 	if (props.validUser) {
 		return <Redirect to='/home' />;	
-	} 
+	}
 	return null;
 }
 

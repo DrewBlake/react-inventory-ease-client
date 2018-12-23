@@ -2,7 +2,6 @@ import React from 'react';
 import {
     BrowserRouter as Router,
     Route,
-    Redirect,
     Switch
 } from 'react-router-dom';
 import SignUpFormPage from './signUp-form';
@@ -13,7 +12,6 @@ import LandingPage from './landing-page';
 export default function InventoryEase() {
     return(
         <Router>
-            <div>
                 <main role='main'>
                     <Switch>
                         <Route exact path='/' component={LandingPage} />
@@ -22,7 +20,6 @@ export default function InventoryEase() {
                         <Route exact path='/home' component={HomePage} />                                  
                     </Switch>
                 </main>
-            </div>
         </Router>
     );
 }

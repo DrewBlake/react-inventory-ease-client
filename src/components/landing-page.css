@@ -58,36 +58,55 @@ body {
 
   header {
     width: 75%;
-    padding-top: 50px;
+    /*padding-top: 20px;*/
     margin-left: auto;
     margin-right: auto;
-    
-    margin-top: 40px;
-    /*padding: 45px 15px;*/
+    margin-top: 70px;
+    padding: 10px 15px;
+    border-radius: 15px;
 
   }
 
-  .landingTitle {
-    background-color: rgba(224, 224, 209, 0.8);
+
+
+  .landingTitle, .inUpHeader {
+    background-color: rgba(46, 46, 31, 0.5);
     border-radius: 15px;
   }
 
   .inUpHeader {
-    color: white;
+    margin-top: 80px;
+    padding-top: 15px;
   }
 
   section {
-    width: 60%;
+   
     border-radius: 15px;
     margin-right: auto;
     margin-left: auto;
     margin-top: 10px;
     margin-bottom: 25px;
-    padding: 30px 15px;
+    padding: 20px 15px;
+    padding-top: 0;
     /*color: black;*/
-    min-height: 200px;
-   /* background-color: rgba(224, 224, 209, 0.7);*/
+    /*min-height: 100px;*/
+    /*background-color: rgba(224, 224, 209, 0.7);
    /* background-color: #444;*/
+  }
+
+  .vehicleList {
+    margin-top: 10px;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border-radius: 10px;
+    background-color: rgba(46, 46, 31, 0.8);
+  }
+
+  .info {
+    background-color: rgba(46, 46, 31, 0.6);
+    /*width: 60%;*/
   }
 
   .title {
@@ -97,4 +116,14 @@ body {
     margin-top: -50px;
     margin-bottom: 0px;
     text-align: center;
+  }
+
+  .signInSection {
+    margin-top: 35px;
+  }
+
+  .updateTitle {
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px;
   }

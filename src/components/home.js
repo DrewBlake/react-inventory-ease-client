@@ -1,32 +1,22 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import SearchIdForm from './searchId-form';
 import AddInventoryForm from './addInventory-form';
 import SearchAll from './searchAll';
 import Footer from './footer';
 import {logOut, getAllVehicles} from '../actions';
 
-//import NavBar from './nav-bar';
-
 export class HomePage extends React.Component {
-    /*constructor(props) {
-        super(props)
-        this.state = {
-            isShow: false
-        }
-    }*/
-
     displayAll() {
         this.props.dispatch(getAllVehicles());
-      /*  this.setState({
-            isShow: true
-        });*/
     }
 
     
     render() { 
-
+        if (this.props.authToken === null) {
+            return <Redirect to='/' />;           
+        } 
         return(
             <div>
                 <nav role='navigation'>

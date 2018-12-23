@@ -27,19 +27,18 @@ export class SignUpFormPage extends React.Component {
     }
     render() {
         return (
-           <main role="main">
+           <div>
                 <nav role='navigation'>
                     <div className="link">
                         <Link to='/' >Back</Link>
                     </div>
                     <p className="title">Inventory Ease</p>
                 </nav>
-                <header className="inUpHeader" role="banner">
+                <header role="banner">
                     <h2>Sign Up</h2>
                     <h3>Get access to all your inventory needs</h3>
                 </header>
-                
-                    
+                <section>    
                     <form onSubmit = {(e) => this.onSubmit(e)}>
                         <div>
                             <label htmlFor="first-name">First name</label>
@@ -64,8 +63,10 @@ export class SignUpFormPage extends React.Component {
                         <button type='submit'>Sign Up</button>
                     </form>
                     <h3>{this.props.signUpError}</h3>
-                    <Footer />
-            </main>
+                </section>
+                
+                <Footer />
+            </div>
         );
     }
 }

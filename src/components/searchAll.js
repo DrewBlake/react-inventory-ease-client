@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function SearchAll(props) {
+    
     const autos = props.autos.map((auto, index) => (
             <div key={index}>
                 <h3>{auto.year} {auto.make} {auto.model} -- Miles: {auto.mileage}</h3>
@@ -10,13 +11,13 @@ export default function SearchAll(props) {
        
     return(
         
-        <main role="main">
+        <div>
             <header role="banner">
                 <h2>Access Granted!</h2> 
                 <h3>Search for existing vehicles</h3>
                 <h3>Add new inventory</h3>    
             </header>
-            <section>
+            <section className="info">
                 <header>
                     <h2>Search Entire Inventory</h2>
                     <h3>Will list all vehicles and associated info for 
@@ -24,9 +25,11 @@ export default function SearchAll(props) {
                     </h3>               
                 </header>
                 <button onClick={()=>props.displayAll()}>Search All</button>
+                <div className="vehicleList">
                 {props.isShow && <div>{autos}</div>}
+                </div>
             </section>           
             
-        </main>
+        </div>
     );
 }

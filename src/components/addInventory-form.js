@@ -1,9 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addVehicle} from '../actions';
-//import {Link} from 'react-router-dom';
-//import './signIn-form.css';
-
 
 export class AddInventoryForm extends React.Component {
     onSubmit(event) {
@@ -13,10 +10,8 @@ export class AddInventoryForm extends React.Component {
         const model = this.model.value;
         const mileage = this.mileage.value;
         const parkingSpace = this.location.value;
-       // const vehicleId = this.id.value;
         const newVehicle = this.isNew.value;
         const vehicleInfo = {
-           // vehicleId,
             year,
             make,
             model,
@@ -32,13 +27,14 @@ export class AddInventoryForm extends React.Component {
         this.model.value = '';
         this.mileage.value = '';
         this.location.value = '';
-        //this.id.value = '';
         this.isNew.value = '';
         
     }
     render() {
+
         return (
-            <main>
+            <div>
+                <section className="info">
                 <header>
                 <h2>Add Inventory</h2>
                 <h3>For recently purchased or traded in vehicles that
@@ -81,7 +77,8 @@ export class AddInventoryForm extends React.Component {
                 </form>
                 <h3>{this.props.message}</h3>
                 <h3>{this.props.successMessage}</h3>
-            </main>
+                </section>
+            </div>
         );
     }
 }
