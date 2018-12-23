@@ -1,15 +1,7 @@
-/* {
-  background: url() 
-  no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;  
-  min-height: 100%;
-  height: 100%; 
-  margin: 0;
-  padding: 0;
-}*/
+* {
+    box-sizing: border-box;
+  }
+
 main {
   background: url(https://cdn.pixabay.com/photo/2017/03/05/15/29/aston-2118857__340.jpg)
   no-repeat center center fixed; 
@@ -24,89 +16,224 @@ main {
 
 }
 
-
 body {
-    font-family: "Open Sans",
-    sans-serif;
-    font-size: 20px;
-    color: white;
-    text-align: center;
-    line-height: 1.5;
-  }
+  font-family: "Open Sans",
+  sans-serif;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  line-height: 1.5;
+}
   
-  nav,
-  footer { 
-    color: white;
-    padding: 1% 0;
-    /*background-color: rgb(29, 28, 28);*/
+nav,
+footer { 
+  color: white;
+  padding: 10px;
+  background-color: rgb(29, 28, 28);
+}
+  
+nav {
+  text-align: left;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+a { 
+  font-size: 15px; 
+  color: white;
+  margin-left: 5px;
+  text-decoration: none;
+}
+
+.link {
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+form {
+  background-color: rgba(46, 46, 31, 0.9);
+  color: white;
+  text-align: left;
+  width: 100%;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  min-height: 200px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+input {
+  font-size: 15px;
+  margin-bottom: 5px;
+  padding-left: 5px;
+  height: 20px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+}
+
+button:hover {
+  color: white;
+  background-color: black;
+}
+
+button {
+  border-radius: 5px;
+}
+
+section {  
+  border-radius: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  padding: 20px 15px;  
+}
+
+header {
+  padding-top: 20px; 
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+
+.landingTitle {
+  font-size: 25px;
+  margin-top: 50px;
+  background-color: rgba(46, 46, 31, 0.5);
+  border-radius: 15px;
+}
+
+.vehicleList {
+  margin-top: 10px;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgba(46, 46, 31, 0.8);
+}
+
+.title {
+  font-size: 20px;
+  margin-top: -30px;
+  margin-bottom: 5px;
+  text-align: right;
+  padding-right: 0px;
+}
+
+.info {
+  background-color: rgba(46, 46, 31, 0.6);
+}
+
+.show {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.updateTitle {
+  background-color: black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.copyright {
+  font-size: 15px;
+}
+
+@media only screen and (min-width: 500px) {
+  .title {
+    font-size: 30px;
+    padding-right: 15px;
+    margin-top: -40px;
   }
+
+  a {
+    font-size: 20px;
+  }
+
+  section { 
+    padding-top: 0;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  .signInSection {
+    margin-top: 65px;
+  }
+
+  header {
+    width: 100%;
+    margin-top: 70px;
+    padding: 10px 15px;
+  }
+
+  input {
+    font-size: 20px;
+    height: 25px;
+  }
+
+  label {
+    font-size: 25px;
+  }
+
+  button {
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 10px;
+    height: 40px;
+    width: 110px;
+    border-radius: 10px;
+  }
+
+
+}
+
+@media only screen and (min-width: 700px) {
   
   nav {
-    text-align: left;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
+    z-index: 20;
   }
 
-  /*a {  
-    color: white;
-    margin-left: 15px;
-    text-decoration: none;
-  }*/
+  .link {
+    margin-top: 10px;
+  }
+
+  form {
+    width: 75%;  
+  }
+
+  input {
+    height: 30px;
+  }
+
+  button {
+    font-size: 20px;
+    width: 120px;
+  }
 
   header {
     width: 75%;
-    /*padding-top: 20px;*/
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 70px;
-    padding: 10px 15px;
-    border-radius: 15px;
-
-  }
-
-
-
-  .landingTitle, .inUpHeader {
-    background-color: rgba(46, 46, 31, 0.5);
-    border-radius: 15px;
-  }
-
-  .inUpHeader {
-    margin-top: 80px;
-    padding-top: 15px;
-  }
-
-  section {
-   
-    border-radius: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 10px;
-    margin-bottom: 25px;
-    padding: 20px 15px;
-    padding-top: 0;
-    /*color: black;*/
-    /*min-height: 100px;*/
-    /*background-color: rgba(224, 224, 209, 0.7);
-   /* background-color: #444;*/
   }
 
   .vehicleList {
-    margin-top: 10px;
-    padding: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-    border-radius: 10px;
-    background-color: rgba(46, 46, 31, 0.8);
-  }
-
-  .info {
-    background-color: rgba(46, 46, 31, 0.6);
-    /*width: 60%;*/
+    width: 75%;
   }
 
   .title {
@@ -119,11 +246,13 @@ body {
   }
 
   .signInSection {
-    margin-top: 35px;
+    margin-top: 45px;
   }
 
-  .updateTitle {
-    background-color: black;
-    border-radius: 10px;
-    padding: 10px;
+  .copyright {
+    font-size: 20px;
   }
+
+}
+
+

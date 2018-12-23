@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Footer from './footer';
 import {signUp} from '../actions';
-import './signUp-form.css';
+//import './signUp-form.css';
 
 
 export class SignUpFormPage extends React.Component {

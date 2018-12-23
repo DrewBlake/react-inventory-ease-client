@@ -8,6 +8,7 @@ import SignUpFormPage from './signUp-form';
 import SignInPage from './signIn-page';
 import HomePage from './home';
 import LandingPage from './landing-page';
+import './landing-page.css';
 
 export default function InventoryEase() {
     return(

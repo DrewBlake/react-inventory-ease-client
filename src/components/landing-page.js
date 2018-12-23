@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Footer from './footer';
-import './landing-page.css';
 
 export default function LandingPage() {
     return(
@@ -26,7 +25,7 @@ export default function LandingPage() {
                     <h2>-Sign up to get started!-</h2>
                     <h3>Increase sales productivity and customer experience.</h3>
                 </section>
-           
+            <div className="copyright" aria-live="assertive">Copyright Andrew Blake 2018</div>
             <Footer />
         </div>
     );
