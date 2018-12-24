@@ -36,7 +36,7 @@ export class SignUpFormPage extends React.Component {
                 </nav>
                 <header role="banner">
                     <h2>Sign Up</h2>
-                    <h3>Get access to all your inventory needs</h3>
+                    <h3 className="inUpDescription">Get access to all your inventory needs</h3>
                 </header>
                 <section>    
                     <form onSubmit = {(e) => this.onSubmit(e)}>

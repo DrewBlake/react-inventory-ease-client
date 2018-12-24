@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Footer from './footer';
 import {checkLogIn} from '../actions';
-//import './signIn-form.css';
 
 
 export class SignInForm extends React.Component {
@@ -34,7 +33,7 @@ export class SignInForm extends React.Component {
                 <section>
                     <header>
                         <h2>Sign In</h2>
-                        <h3>Start your search or inventory update.</h3>
+                        <h3 className="inUpDescription">Start your search or inventory update.</h3>
                     </header>
                 </section>
                 <section className="signInSection">                            
