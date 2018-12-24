@@ -1,11 +1,12 @@
 import React from 'react';
 
 export default function SearchAll(props) {
-    
+
     const autos = props.autos.map((auto, index) => (
             <div key={index}>
                 <h3>{auto.year} {auto.make} {auto.model} -- Miles: {auto.mileage}</h3>
-                <h4>Id: {auto.id} -- Parking Space: {auto.parkingSpace}</h4>  
+                <h4>Id: {auto.id} -- Parking Space: {auto.parkingSpace}</h4>
+                <p>----------------------------------------------------</p>  
             </div>
     ));
        
@@ -13,9 +14,11 @@ export default function SearchAll(props) {
         
         <div>
             <header role="banner">
-                <h2>Access Granted!</h2> 
-                <h3>Search for existing vehicles</h3>
-                <h3>Add new inventory</h3>    
+                <h2>Access Granted!</h2>
+                <div className="inUpDescription">
+                    <h3>Search for existing vehicles</h3>
+                    <h3>Add new inventory</h3>
+                </div>    
             </header>
             <section className="info">
                 <header>
