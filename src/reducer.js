@@ -59,7 +59,8 @@ export default (state = initialState, action) => {
 
 	if (action.type === ADD_SUCCESS_MESSAGE) {
 		return Object.assign({}, state, {
-			successMessage: action.message
+			successMessage: action.message,
+			message: ''
 		});
 	}
 
@@ -76,7 +77,7 @@ export default (state = initialState, action) => {
 			vehicles: action.vehicles,
 			validVehicleId: false,
 			errorMessage: '',
-			message: '',
+			//message: '',
 			isShow: true
 		});
 	}
@@ -94,7 +95,8 @@ export default (state = initialState, action) => {
 	if (action.type === GET_VEHICLE_ID_ERROR) {
 		return Object.assign({}, state, {
 			validVehicleId: false,
-			errorMessage: action.message
+			errorMessage: action.message,
+			message: ''
 		});
 	}
 

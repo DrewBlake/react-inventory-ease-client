@@ -107,9 +107,10 @@ export class SearchIdForm extends React.Component {
                             </form>
                         </div>
                             <h3 aria-live="assertive">{this.props.signUpError}</h3>
-                            <h3 aria-live="assertive">{this.props.message}</h3>
+                            
                             <h2 className={this.state.displayDelete?'show':'hidden'} aria-live="assertive">Vehicle Deleted</h2>
                     </div> }
+                    <h3 aria-live="assertive">{this.props.message}</h3>
                 </section>
             </div>        
         );
