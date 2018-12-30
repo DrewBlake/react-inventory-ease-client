@@ -15,10 +15,7 @@ export default function SearchAll(props) {
         <div>
             <header role="banner">
                 <h2>Access Granted!</h2>
-                <div className="inUpDescription">
-                    <h3>Search for existing vehicles</h3>
-                    <h3>Add new inventory</h3>
-                </div>    
+                
             </header>
             <section className="info">
                 <header>

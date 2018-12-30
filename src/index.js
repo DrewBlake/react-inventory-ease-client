@@ -9,8 +9,7 @@ import InventoryEase from './components/inventory-ease';
 
 ReactDOM.render(
     <Provider store={store}>
-        <InventoryEase />
-         
+        <InventoryEase />       
     </Provider>,
     document.getElementById('root')
 );

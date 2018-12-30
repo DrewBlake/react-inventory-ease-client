@@ -3,8 +3,6 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 
 export function HandleLogIn(props) {
-	console.log(props.validUser);
-	console.log('HandleLogIn');
 	if (props.validUser) {
 		return <Redirect to='/home' />;	
 	}
