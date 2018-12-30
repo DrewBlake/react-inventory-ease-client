@@ -1,5 +1,7 @@
 import React from 'react';
 
+//Searches for all vehicles in database, recieves props from parent Home component
+//Dispatches getAllVehicles through displayAll function
 export default function SearchAll(props) {
 
     const autos = props.autos.map((auto, index) => (
@@ -25,7 +27,7 @@ export default function SearchAll(props) {
                     </h3>               
                 </header>
                 <button onClick={()=>props.displayAll()}>Search All</button>
-                <div className="vehicleList">
+                <div className="vehicleList" aria-live="assertive">
                 {props.isShow && <div>{autos}</div>}
                 </div>
             </section>           

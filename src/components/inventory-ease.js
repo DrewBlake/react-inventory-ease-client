@@ -10,6 +10,8 @@ import HomePage from './home';
 import LandingPage from './landing-page';
 import './landing-page.css';
 
+//Main react function that gets rendered in the DOM
+//Routes to different pages/components in the app
 export default function InventoryEase() {
     return(
         <Router>

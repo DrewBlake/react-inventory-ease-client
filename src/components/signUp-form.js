@@ -4,7 +4,9 @@ import {Link} from 'react-router-dom';
 import Footer from './footer';
 import {signUp} from '../actions';
 
-
+//Connected component that recieves user info from form and dispatches
+//signUp function with recieved user info
+//Part of main component inventoryEase, signUp link routes to this page
 export class SignUpFormPage extends React.Component {
     onSubmit(event) {
         event.preventDefault();
@@ -61,7 +63,7 @@ export class SignUpFormPage extends React.Component {
                         </div>
                         <button type='submit'>Sign Up</button>
                     </form>
-                    <h3>{this.props.signUpError}</h3>
+                    <h3 aria-live="assertive">{this.props.signUpError}</h3>
                 </section>
                 
                 <Footer />

@@ -6,7 +6,7 @@ import './index.css';
 import InventoryEase from './components/inventory-ease';
 
 
-
+//Renders react app to the DOM
 ReactDOM.render(
     <Provider store={store}>
         <InventoryEase />       

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import Footer from './footer';
 import {checkLogIn} from '../actions';
 
-
+//Form used to login in to app, dispatches checkLogIn to check user
 export class SignInForm extends React.Component {
     
     onSubmit(event) {
@@ -17,7 +17,6 @@ export class SignInForm extends React.Component {
         };
         
         this.props.dispatch(checkLogIn(user));
-       
         this.username.value = '';
         this.password.value = '';
     }
@@ -31,7 +30,7 @@ export class SignInForm extends React.Component {
                     <p className="title">Inventory Ease</p>
                 </nav>
                 <section>
-                    <header>
+                    <header role="banner">
                         <h2>Sign In</h2>
                         <h3 className="inUpDescription">Start your search or inventory update.</h3>
                     </header>
@@ -50,7 +49,7 @@ export class SignInForm extends React.Component {
                         </div>   
                         <button type='submit'>Sign In</button>                
                     </form>
-                    <h3>{this.props.message}</h3>
+                    <h3 aria-live="assertive">{this.props.message}</h3>
                 </section>
                    
                 <Footer />   

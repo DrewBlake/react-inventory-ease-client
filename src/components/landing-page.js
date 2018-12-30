@@ -2,6 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Footer from './footer';
 
+//Informational page first displayed to the user, part of main inventoryEase component
+//Gives options to sign up as a new user or sign in as an existing user
+//Sign in will link to sign in page, Sign up will link to sign up page
 export default function LandingPage() {
     return(
         <div>
@@ -13,18 +16,18 @@ export default function LandingPage() {
                 <p className="title">Inventory Ease</p>
             </nav>
             
-                <header role="banner">
-                    <h2 className="landingTitle">Streamline your auto dealerships inventory</h2>
-                </header>
-                <section className="info">
-                    <h2>-What you can do-</h2>                   
-                    <h3>View entire dealership inventory</h3>
-                    <h3>Search inventory by vehicle ID</h3>
-                    <h3>Add and delete vehicles from inventory</h3>
-                    <h3>Update vehicle info</h3> 
-                    <h2>-Sign up to get started!-</h2>
-                    <h3>Increase sales productivity and customer experience.</h3>
-                </section>
+            <header role="banner">
+                <h2 className="landingTitle">Streamline your auto dealerships inventory</h2>
+            </header>
+            <section className="info">
+                <h2 className="landingHeader">-What you can do-</h2>                   
+                <p>View entire dealership inventory</p>
+                <p>Search inventory by vehicle ID</p>
+                <p>Add and delete vehicles from inventory</p>
+                <p>Update vehicle info</p> 
+                <h2 className="landingHeader">-Sign up to get started!-</h2>
+                <p>Increase sales productivity and customer experience.</p>
+            </section>
             <div className="copyright" aria-live="assertive">Copyright Andrew Blake 2018</div>
             <Footer />
         </div>

@@ -1,5 +1,6 @@
 import {API_BASE_URL} from './config';
 
+//used to handle different error types
 export const normalizeResponseErrors = res => {
     if (!res.ok) {
         if (
@@ -18,22 +19,20 @@ export const normalizeResponseErrors = res => {
     return res;
 };
 
+//Dispatched by signUp function when signUp throws an error
 export const SHOW_ERROR = 'SHOW_ERROR';
 export const showError = (error) => ({
 	type: SHOW_ERROR,
 	error
 });
 
-export const RESET_ERROR = 'RESET_ERROR';
-export const resetError = () => ({
-	type: RESET_ERROR
-});
-
+//Dispatched by signUp when signUp is successful
 export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
 export const signUpSuccess = () => ({
 	type: SIGN_UP_SUCCESS
 });
 
+//Function used to POST	user info to database when registering a new user
 export const signUp = (user) => (dispatch) => {
 	return fetch(`${API_BASE_URL}/users`, {
 		method: 'POST',
@@ -55,19 +54,24 @@ export const signUp = (user) => (dispatch) => {
 	});
 };
 
+//Dispatched by checkLogin function when a valid user is identified
+//Sets authToken value to the state  
 export const CHECK_LOGIN_SUCCESS = 'CHECK_LOGIN_SUCCESS';
 export const checkLogInSuccess = (authToken) => ({
 	type: CHECK_LOGIN_SUCCESS,
 	authToken
 });
 
+//Dispatched by ckeckLogin when error is returned
+//Sets error message in state that will be displayed to the user
 export const CHECK_LOGIN_ERROR = 'CHECK_LOGIN_ERROR';
 export const checkLogInError = (message) => ({
 	type: CHECK_LOGIN_ERROR,
 	message
 });
 
-
+//Function that checks for valid user and returns authToken if successful
+//Dispatches checkLoginError if invalid user
 export const checkLogIn = (user) => (dispatch) => {
     return fetch(`${API_BASE_URL}/auth/login`, {
 		method: 'POST',
@@ -87,12 +91,16 @@ export const checkLogIn = (user) => (dispatch) => {
     
 };
 
+//Sets validUser to false and authToken to null in the state
+//Will route user back to landing page
 export const LOG_OUT = 'LOG_OUT';
 export const logOut = () => ({
 	type: LOG_OUT
 });
 
-
+//Removes selected vehicle found by getVehicleId function
+//Delete button option only displayed after successful getVehicleId call
+//Dispatches getAllVehicles function to show updated vehicle list after delete
 export const deleteVehicle = (id) => (dispatch, getState) => {
 	const authToken = getState().authToken;
 	fetch(`${API_BASE_URL}/vehicles/${id}`, {
@@ -109,6 +117,9 @@ export const deleteVehicle = (id) => (dispatch, getState) => {
 };
 
 
+//Function that allows mileage and parking space to be updated for vehicle
+//Makes PUT request to server.  Dispatches showError if unsuccessful
+//Dispatches getAllVehicles to show updated info on vehicle
 export const updateVehicle = (updateInfo) => (dispatch, getState) => {
 	const authToken = getState().authToken;
 	return fetch(`${API_BASE_URL}/vehicles/${updateInfo.id}`, {
@@ -132,18 +143,23 @@ export const updateVehicle = (updateInfo) => (dispatch, getState) => {
 	});
 };
 
+//Dispatched when addVehicle throws an error 
+//Changes message in state to error message
 export const ADD_VEHICLE_MESSAGE = 'ADD_VEHICLE_SUCCESS';
 export const addVehicleMessage = (message) => ({
 	type: ADD_VEHICLE_MESSAGE,
 	message
 });
 
+//Dispatched when addVehicle function is successful
+//Changes message in state to success message
 export const ADD_SUCCESS_MESSAGE = 'ADD_SUCCESS_MESSAGE';
 export const addSuccessMessage = (message) => ({
 	type: ADD_SUCCESS_MESSAGE,
 	message
 });
 
+//POST method function to add a new vehicle to database
 export const addVehicle = (vehicle) => (dispatch, getState) => {
 	const authToken = getState().authToken;
 	return fetch(`${API_BASE_URL}/vehicles`, {
@@ -167,20 +183,22 @@ export const addVehicle = (vehicle) => (dispatch, getState) => {
 	});
 };
 
-
+//Dispatched when getAllVehicles throws an error
 export const GET_ALL_VEHICLES_ERROR = 'GET_ALL_VEHICLES_ERROR';
 export const getAllVehiclesError = (error) => ({
 	type: GET_ALL_VEHICLES_ERROR,
 	error
 });
 
+//Dispatched when getAllVehicles is successful
+//Sets state to vehicles returned from database
 export const GET_ALL_VEHICLES_SUCCESS = 'GET_ALL_VEHICLES_SUCCESS';
 export const getAllVehiclesSuccess = (vehicles) => ({
 	type: GET_ALL_VEHICLES_SUCCESS,
 	vehicles
 });
 
-
+//Function that makes a GET request to database
 export const getAllVehicles = () => (dispatch, getState) => {
 	const authToken = getState().authToken;
 	fetch(`${API_BASE_URL}/vehicles`, {
@@ -202,19 +220,23 @@ export const getAllVehicles = () => (dispatch, getState) => {
 
 };
 
+//Dispatched when getVehicleId throws an error
+//Sets message to error message in the state
 export const GET_VEHICLE_ID_ERROR = 'GET_VEHICLE_ID_ERROR';
 export const getVehicleIdError = (message) => ({
 	type: GET_VEHICLE_ID_ERROR,
 	message
 });
 
+//Dispatched when getVehicleId is successful
+//Sets singleVehicle in state to vehicle returned by getVehicleId
 export const GET_VEHICLE_ID_SUCCESS = 'GET_VEHICLE_ID_SUCCESS';
 export const getVehicleIdSuccess = (vehicle) => ({ 
 	type: GET_VEHICLE_ID_SUCCESS,
 	vehicle
 });
 
-
+//Function that makes a GET by id request to database
 export const getVehicleId = (id) => (dispatch, getState) => {
 	const authToken = getState().authToken; 
 	fetch(`${API_BASE_URL}/vehicles/${id}`, {

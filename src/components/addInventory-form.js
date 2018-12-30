@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {addVehicle} from '../actions';
 
+//Connected component, a form used to add new inventory to database
 export class AddInventoryForm extends React.Component {
     onSubmit(event) {
         event.preventDefault();
@@ -21,7 +22,6 @@ export class AddInventoryForm extends React.Component {
         }
 
         this.props.dispatch(addVehicle(vehicleInfo));
-
         this.year.value = '';
         this.make.value = '';
         this.model.value = '';
@@ -35,48 +35,48 @@ export class AddInventoryForm extends React.Component {
         return (
             <div>
                 <section className="info">
-                <header>
-                <h2>Add Inventory</h2>
-                <h3>For recently purchased or traded in vehicles that
-                    need to be added to dealership inventory
-                </h3>
-                </header>
-                <form onSubmit={(e) => this.onSubmit(e)}>
-                    <div>
-                        <label htmlFor="year">Year</label>
-                        <input type="number" name='year' id='year' 
-                            ref={input => this.year = input} required />
-                    </div>
-                    <div>
-                        <label htmlFor="make">Make</label>
-                        <input type="text" name='make' id='make' placeholder='Honda' 
-                            ref={input => this.make = input} required />
-                    </div>
-                    <div>
-                        <label htmlFor="model">Model</label>
-                        <input type="text" name='model' id='model' placeholder='Accord'
-                            ref={input => this.model = input} required />
-                    </div>
-                    <div>
-                        <label htmlFor="mileage">Mileage</label>
-                        <input type="text" name='mileage' id='mileage' 
-                            ref={input => this.mileage = input} required />
-                    </div>
-                    
-                    <div>
-                        <label htmlFor="location">Parking space</label>
-                        <input type="text" name='location' id='location' 
-                            ref={input => this.location = input} required />
-                    </div>
-                    <div>
-                        <label htmlFor="location">Is vehicle new?</label>
-                        <input type="boolean" name='isNew' id='isNew' placeholder='true/false'
-                            ref={input => this.isNew = input} required />
-                    </div>
-                    <button type='submit'>Enter</button>
-                </form>
-                <h3>{this.props.message}</h3>
-                <h3>{this.props.successMessage}</h3>
+                    <header role="banner">
+                        <h2>Add Inventory</h2>
+                        <h3>For recently purchased or traded in vehicles that
+                            need to be added to dealership inventory
+                        </h3>
+                    </header>
+                    <form onSubmit={(e) => this.onSubmit(e)}>
+                        <div>
+                            <label htmlFor="year">Year</label>
+                            <input type="number" name='year' id='year' 
+                                ref={input => this.year = input} required />
+                        </div>
+                        <div>
+                            <label htmlFor="make">Make</label>
+                            <input type="text" name='make' id='make' placeholder='Honda' 
+                                ref={input => this.make = input} required />
+                        </div>
+                        <div>
+                            <label htmlFor="model">Model</label>
+                            <input type="text" name='model' id='model' placeholder='Accord'
+                                ref={input => this.model = input} required />
+                        </div>
+                        <div>
+                            <label htmlFor="mileage">Mileage</label>
+                            <input type="text" name='mileage' id='mileage' 
+                                ref={input => this.mileage = input} required />
+                        </div>
+                        
+                        <div>
+                            <label htmlFor="location">Parking space</label>
+                            <input type="text" name='location' id='location' 
+                                ref={input => this.location = input} required />
+                        </div>
+                        <div>
+                            <label htmlFor="location">Is vehicle new?</label>
+                            <input type="boolean" name='isNew' id='isNew' placeholder='true/false'
+                                ref={input => this.isNew = input} required />
+                        </div>
+                        <button type='submit'>Enter</button>
+                    </form>
+                    <h3 aria-live="assertive">{this.props.message}</h3>
+                    <h3 aria-live="assertive">{this.props.successMessage}</h3>
                 </section>
             </div>
         );

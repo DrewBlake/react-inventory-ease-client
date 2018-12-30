@@ -7,12 +7,16 @@ import SearchAll from './searchAll';
 import Footer from './footer';
 import {logOut, getAllVehicles} from '../actions';
 
+//Connected component, checks for valid authToken, part of main InventorEase component 
+//if not redirects user to landing page
+//Displays component to search all vehicles and
+//Search vehicles by Id, which then allows for delete and update options
+//Also displays component to add vehicle to inventory
 export class HomePage extends React.Component {
     displayAll() {
         this.props.dispatch(getAllVehicles());
     }
 
-    
     render() { 
         if (this.props.authToken === null) {
             return <Redirect to='/' />;           

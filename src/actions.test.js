@@ -38,6 +38,7 @@ describe('signUpSuccess', () => {
 	});
 });
 
+
 describe('signUp', () => {
 	it('Should dispatch signUpSuccess', () => {
 		global.fetch = jest.fn().mockImplementation(() => 
@@ -54,7 +55,21 @@ describe('signUp', () => {
 	});
 });
 
+describe('checkLogIn', () => {
+	it('Should dispatch checkLogInSuccess', () => {
+		global.fetch = jest.fn().mockImplementation(() => 
+			Promise.resolve({
+				ok: true
+			})
+		);
 
+		const dispatch = jest.fn();
+		return checkLogIn()(dispatch).then(() => {
+			
+			expect(dispatch).toHaveBeenCalledWith(checkLogInError('Incorrect Username or Password'));
+		});
+	});
+});
 
 describe('checkLogInSuccess', () => {
 	it('Should return the action', () => {
@@ -76,7 +91,7 @@ describe('checkLogInError', () => {
 	});
 });
 
-describe('getAllVehicles', () => {
+/*describe('getAllVehicles', () => {
 	it('Should dispatch getAllVehiclesSuccess', () => {
 		const vehicle = [];
 		const dispatch = jest.fn();
@@ -94,5 +109,5 @@ describe('getAllVehicles', () => {
 			expect(dispatch).toHaveBeenCalledWith(getAllVehiclesSuccess(vehicle));
 		});
 	});
-});
+});*/
 
