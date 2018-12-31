@@ -50,7 +50,7 @@ https://github.com/DrewBlake/react-inventory-ease-api
 
 <h3>Home page: Includes options for search all, search by Id, update and
 add new vehicle to inventory.</h3>
-<img src="" />
+<img src="https://github.com/DrewBlake/react-inventory-ease-client/blob/master/screen_shots/Home-page.PNG" />
 
 <h3>Search Entire Inventory:</h3>
 <img src="https://github.com/DrewBlake/react-inventory-ease-client/blob/master/screen_shots/Search-All.PNG" />
