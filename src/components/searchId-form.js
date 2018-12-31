@@ -76,6 +76,7 @@ export class SearchIdForm extends React.Component {
                         <h2>Search By Vehicle ID</h2>
                         <h3>Gives information for specific vehicle selected</h3>
                         <h3>Allows you to update vehicle info</h3>
+                        <h3>If Id not available copy and paste Id from 'Search All' list above</h3>
                     </header>
                     <form onSubmit={(e) => this.onSubmit(e)}>   
                         <label htmlFor="id">Enter ID</label>

@@ -10,7 +10,6 @@ https://gentle-river-19087.herokuapp.com/
 <h2>Front End</h2>
 <ul>
   <li>React</li>
-  <li>JavaScript</li>
   <li>CSS</li>
   <li>HTML</li>
 </ul>
