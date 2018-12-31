@@ -20,6 +20,7 @@ https://gentle-river-19087.herokuapp.com/
   <li>enzyme-adapter-react-16</li>
   <li>react-test-renderer</li>
   <li>redux-mock-store</li>
+</ul>
 
 <h2>Server side repo</h2>
 https://github.com/DrewBlake/react-inventory-ease-api
@@ -38,23 +39,27 @@ https://github.com/DrewBlake/react-inventory-ease-api
 </ul>
 
 <h2>Screen shots</h2>
-<h3>Home page:</h3>
-<img src= />
+<h3>Landing Page</h3>
+<img src="https://github.com/DrewBlake/react-inventory-ease-client/blob/master/screen_shots/landing-page.PNG" />
 
 <h3>Sign up form - create a new account:</h3>
-<img src= />
+<img src="https://github.com/DrewBlake/react-inventory-ease-client/blob/master/screen_shots/Sign-Up-Page.PNG" />
 
-<h3>Sing in form - sign in to existing account:</h3>
-<img src= />
+<h3>Sign in form - sign in to existing account:</h3>
+<img src="https://github.com/DrewBlake/react-inventory-ease-client/blob/master/screen_shots/Sign-In-Page.PNG" />
 
-<h3>Home screen of signed in Admin user - Has Search all users button:</h3>
-<img src= />
+<h3>Home page: Includes options for search all, search by Id, update and
+add new vehicle to inventory.</h3>
+<img src="" />
 
-<h3>Shows repair schedule:</h3>
-<img src= />
+<h3>Search Entire Inventory:</h3>
+<img src="https://github.com/DrewBlake/react-inventory-ease-client/blob/master/screen_shots/Search-All.PNG" />
 
-<h3>Schedule Appointment Form:</h3>
-<img src= />
+<h3>Search vehicle by Id:</h3>
+<img src="https://github.com/DrewBlake/react-inventory-ease-client/blob/master/screen_shots/Search-Id.PNG" />
 
-<h3>Update Contact Info Form:</h3>
-<img src= />
+<h3>Update vehicle info:</h3>
+<img src="https://github.com/DrewBlake/react-inventory-ease-client/blob/master/screen_shots/Update.PNG" />
+
+<h3>Add new inventory:</h3>
+<img src="https://github.com/DrewBlake/react-inventory-ease-client/blob/master/screen_shots/Add-Inventory.PNG" />
