@@ -34,12 +34,10 @@ export class AddInventoryForm extends React.Component {
 
         return (
             <div>
-                <section className="info">
+                <section className="search">
                     <header role="banner">
                         <h2>Add Inventory</h2>
-                        <h3>For recently purchased or traded in vehicles that
-                            need to be added to dealership inventory
-                        </h3>
+                        <h3>For recently purchased or traded in vehicles</h3>
                     </header>
                     <form onSubmit={(e) => this.onSubmit(e)}>
                         <div>

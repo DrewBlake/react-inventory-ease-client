@@ -25,7 +25,8 @@ export class HomePage extends React.Component {
             <div>
                 <nav role='navigation'>
                     <div className="link">
-                        <Link to='/' onClick={()=>this.dispatch(logOut())}>Log Out</Link>       
+                        <Link to='/' onClick={() => {if (window.confirm('Are you sure you want to log out?'))
+                         this.dispatch(logOut())}}>Log Out</Link>       
                     </div>
                     <p className="title">Inventory Ease</p>
                 </nav>

@@ -19,16 +19,8 @@ export default function LandingPage() {
             <header role="banner">
                 <h2 className="landingTitle">Streamline your auto dealerships inventory</h2>
             </header>
-            <div className="userInstruction">
-                    <p>* Click Sign-in link above to test app *</p>
-                    <p>* Use Username: 'User' and Password: 'password123' *</p>
-            </div>
+            
             <section className="info">
-                <h2 className="landingHeader">-What you can do-</h2>                   
-                <p>View entire dealership inventory</p>
-                <p>Search inventory by vehicle ID</p>
-                <p>Add and delete vehicles from inventory</p>
-                <p>Update vehicle info</p> 
                 <h2 className="landingHeader">-Sign up to get started!-</h2>
                 <p>Increase sales productivity and customer experience.</p>
             </section>

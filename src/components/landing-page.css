@@ -68,15 +68,16 @@ form {
 }
 
 input {
-  font-size: 15px;
+  font-size: 20px;
   margin-bottom: 5px;
   padding-left: 5px;
-  height: 20px;
+  height: 30px;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 label {
+  font-size: 25px;
   display: block;
 }
 
@@ -86,7 +87,9 @@ button:hover {
 }
 
 button {
-  border-radius: 5px;
+  border-radius: 10px;
+  height: 30px;
+  font-weight: 700;
 }
 
 section {  
@@ -104,6 +107,14 @@ header {
   margin-left: auto;
   margin-right: auto;
   border-radius: 15px;
+}
+
+.waitIcon {
+  height: 120px;
+  width: 120px;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 160px;
 }
 
 .userInstruction {
@@ -132,7 +143,7 @@ header {
 
 .vehicleList {
   margin-top: 10px;
-  padding: 5px;
+  padding: 15px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -150,16 +161,15 @@ header {
 
 .info {
   background-color: rgba(46, 46, 31, 0.6);
+  margin-top: 50px;
+  margin-bottom: 100px;
+  padding: 30px;
 }
 
-.show {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hidden {
-  display: none;
+.search {
+  background-color: rgba(46, 46, 31, 0.6);
+  margin-top: 30px;
+  padding-top: 0px;
 }
 
 .updateTitle {
@@ -177,6 +187,17 @@ header {
     font-size: 30px;
     padding-right: 15px;
     margin-top: -40px;
+  }
+
+  .info {
+    margin-bottom: 150px;
+  }
+
+  .waitIcon {
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    margin-bottom: 100px;
   }
 
   a {
@@ -199,11 +220,6 @@ header {
     width: 100%;
     margin-top: 70px;
     padding: 10px 15px;
-  }
-
-  input {
-    font-size: 20px;
-    height: 25px;
   }
 
   label {

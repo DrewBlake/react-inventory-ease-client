@@ -32,9 +32,19 @@ export class SignInForm extends React.Component {
                 <section>
                     <header role="banner">
                         <h2>Sign In</h2>
-                        <h3 className="inUpDescription">Start your search or inventory update.</h3>
+                        {!(this.props.show)&&
+                        <div  className="inUpDescription">
+                            <h3>Start your search or inventory update.</h3>
+                            <p>Username: 'User' and Password: 'password123'</p>
+                        </div>}
                     </header>
                 </section>
+                { this.props.show&&
+                <div>
+                    <p>Logging In...</p>
+                    <img className="waitIcon" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt='logging in'/>
+                </div> }
+                {!(this.props.show)&&
                 <section className="signInSection">                            
                     <form onSubmit={e => this.onSubmit(e)}>   
                         <div>
@@ -50,7 +60,7 @@ export class SignInForm extends React.Component {
                         <button type='submit'>Sign In</button>                
                     </form>
                     <h3 aria-live="assertive">{this.props.message}</h3>
-                </section>
+                </section>}
                    
                 <Footer />   
             </div>       
@@ -60,6 +70,7 @@ export class SignInForm extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        show: state.show,
         message: state.message || '',
         validUser: state.validUser,
         user: state.user

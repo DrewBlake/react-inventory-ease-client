@@ -70,9 +70,16 @@ export const checkLogInError = (message) => ({
 	message
 });
 
+export const CHECK_LOGIN_PENDING = 'CHECK_LOGIN_PENDING';
+export const checkLoginPending = () => ({
+	type: CHECK_LOGIN_PENDING,
+});
+
 //Function that checks for valid user and returns authToken if successful
 //Dispatches checkLoginError if invalid user
 export const checkLogIn = (user) => (dispatch) => {
+	dispatch(checkLoginPending());
+
     return fetch(`${API_BASE_URL}/auth/login`, {
 		method: 'POST',
 		headers: {
@@ -81,7 +88,7 @@ export const checkLogIn = (user) => (dispatch) => {
 		body: JSON.stringify(user)
 	})
 	.then(res => res.json())	
-	.then(res => {	
+	.then(res => {		
 		dispatch(checkLogInSuccess(res.authToken));
 	})
 	.catch((error) => {
@@ -112,7 +119,11 @@ export const deleteVehicle = (id) => (dispatch, getState) => {
 		if (!res.ok) {
 			return Promise.reject(res.statusText);
 		}
-		return dispatch(getAllVehicles());
+		const message1 = 'Vehicle deleted successfully!'
+		dispatch(checkLogInError(message1));
+	}).then(() => {
+		dispatch(getAllVehicles())
+	
 	});
 };
 

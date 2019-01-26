@@ -39,14 +39,15 @@ export class SearchIdForm extends React.Component {
         this.id.value = '';
     }
 
-    removeVehicle() {   
+    removeVehicle() { 
+        
         this.props.dispatch(deleteVehicle(this.state.id));
         this.setState({
             isActive: false,
             auto: [],
-            displayDelete: true,
             id: ''
         });
+        
     }
 
     submitUpdate(event) {
@@ -71,12 +72,12 @@ export class SearchIdForm extends React.Component {
         } 
         return (
             <div>
-                <section className="info">
+                <section className="search">
                     <header role="banner">
                         <h2>Search By Vehicle ID</h2>
-                        <h3>Gives information for specific vehicle selected</h3>
+                        
                         <h3>Allows you to update vehicle info</h3>
-                        <h3>If Id not available copy and paste Id from 'Search All' list above</h3>
+                        
                     </header>
                     <form onSubmit={(e) => this.onSubmit(e)}>   
                         <label htmlFor="id">Enter ID</label>
@@ -92,9 +93,11 @@ export class SearchIdForm extends React.Component {
                             <h3>{this.props.auto.year} {this.props.auto.make} {this.props.auto.model}</h3>
                             <h4>{this.state.mileage} {this.props.auto.mileage}</h4>
                             <h4>{this.state.parkingSpace} {this.props.auto.parkingSpace}</h4>
+                            <button onClick={() => { if (window.confirm('Are you sure you want to delete this vehicle?'))
+                             this.removeVehicle()}}>Delete</button>
                         </div>
                         <div className={this.state.isActive?'show':'hidden'} aria-live="assertive">
-                            <button onClick={() => this.removeVehicle()}>Delete</button>
+                            
                                   
                             <form onSubmit={(e) => this.submitUpdate(e)}>
                                 <h3 className="updateTitle">Update Vehicle Info</h3>
@@ -109,7 +112,6 @@ export class SearchIdForm extends React.Component {
                         </div>
                             <h3 aria-live="assertive">{this.props.signUpError}</h3>
                             
-                            <h2 className={this.state.displayDelete?'show':'hidden'} aria-live="assertive">Vehicle Deleted</h2>
                     </div> }
                     <h3 aria-live="assertive">{this.props.message}</h3>
                 </section>
