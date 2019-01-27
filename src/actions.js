@@ -98,12 +98,26 @@ export const checkLogIn = (user) => (dispatch) => {
     
 };
 
+export const LOG_OUT_SUCCESS = 'LOG_OUT_SUCCESS';
+export const logOutSuccess = () => ({
+	type: LOG_OUT_SUCCESS
+});
+
+
+export const LOG_OUT_PENDING = 'LOG_OUT_PENDING';
+export const logOutPending = () => ({
+	type: LOG_OUT_PENDING
+});
+
 //Sets validUser to false and authToken to null in the state
 //Will route user back to landing page
-export const LOG_OUT = 'LOG_OUT';
-export const logOut = () => ({
-	type: LOG_OUT
-});
+//export const LOG_OUT = 'LOG_OUT';
+export const logOut = () => (dispatch) => {
+	dispatch(logOutPending());
+	setTimeout(function() {
+		dispatch(logOutSuccess()); 
+	},100);	
+};
 
 //Removes selected vehicle found by getVehicleId function
 //Delete button option only displayed after successful getVehicleId call

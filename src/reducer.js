@@ -1,4 +1,4 @@
-import {CHECK_LOGIN_SUCCESS, LOG_OUT, 
+import {CHECK_LOGIN_SUCCESS, LOG_OUT_PENDING, LOG_OUT_SUCCESS, 
 	GET_ALL_VEHICLES_SUCCESS, GET_VEHICLE_ID_SUCCESS,
 	SHOW_ERROR, CHECK_LOGIN_ERROR, CHECK_LOGIN_PENDING, 
 	GET_VEHICLE_ID_ERROR, ADD_SUCCESS_MESSAGE, ADD_VEHICLE_MESSAGE, 
@@ -72,9 +72,22 @@ export default (state = initialState, action) => {
 		});
 	}
 
-	if (action.type === LOG_OUT) {
+	if (action.type === LOG_OUT_PENDING) {
 		return Object.assign({}, state, {
+				show: true
+			});
+	}
+
+	if (action.type === LOG_OUT_SUCCESS) {
+		return Object.assign({}, state, {
+				show: false,
+				isShow: false,
 				validUser: false,
+				validVehicleId: false,
+				signUpError: '',
+				errorMessage: '',
+				message: '',
+				successMessage: '',
 				authToken: null
 			});
 	}

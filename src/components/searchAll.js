@@ -19,6 +19,7 @@ export default function SearchAll(props) {
                 <h2>Access Granted!</h2>
                 
             </header>
+            
             <section className="search">
                 <header>
                     <h2>Search Entire Inventory</h2>

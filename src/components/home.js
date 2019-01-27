@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import SearchIdForm from './searchId-form';
 import AddInventoryForm from './addInventory-form';
 import SearchAll from './searchAll';
@@ -17,6 +17,10 @@ export class HomePage extends React.Component {
         this.props.dispatch(getAllVehicles());
     }
 
+    signOut() {
+        this.props.dispatch(logOut());
+    }
+
     render() { 
         if (this.props.authToken === null) {
             return <Redirect to='/' />;           
@@ -25,16 +29,28 @@ export class HomePage extends React.Component {
             <div>
                 <nav role='navigation'>
                     <div className="link">
-                        <Link to='/' onClick={() => {if (window.confirm('Are you sure you want to log out?'))
-                         this.dispatch(logOut())}}>Log Out</Link>       
+                        <button className="outButton" onClick={() => 
+                        {if (window.confirm('Are you sure you want to log out?'))
+                         this.signOut()}}>Log Out
+                        </button>       
                     </div>
-                    <p className="title">Inventory Ease</p>
+                    <p className="titleHome">Inventory Ease</p>
                 </nav>
+               
+                { !(this.props.show)&&
                 <SearchAll displayAll={()=>this.displayAll()} 
                     isShow={this.props.isShow} 
-                    autos={this.props.vehicles} />
-                <SearchIdForm />
-                <AddInventoryForm />
+                    autos={this.props.vehicles} /> }
+                { this.props.show&&
+                <div className="logingOut">
+                    <p>Logging Out...</p>
+                    <img className="waitIcon" 
+                    src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt='logging out'/>
+                </div> }
+                { !(this.props.show)&&
+                <SearchIdForm /> }
+                { !(this.props.show)&&
+                <AddInventoryForm /> }
                 <Footer />    
             </div>       
         );
@@ -43,6 +59,7 @@ export class HomePage extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        show: state.show,
         isShow: state.isShow,
         vehicles: state.vehicles
     }

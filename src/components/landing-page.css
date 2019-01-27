@@ -49,7 +49,8 @@ a {
 }
 
 .link {
-  padding-top: 10px;
+  padding-top: 0px;
+  padding-bottom: 2px;
   font-size: 20px;
 }
 
@@ -92,6 +93,10 @@ button {
   font-weight: 700;
 }
 
+.outButton {
+  margin-top: 10px;
+}
+
 section {  
   border-radius: 15px;
   margin-right: auto;
@@ -115,6 +120,12 @@ header {
   border-radius: 10px;
   margin-top: 30px;
   margin-bottom: 160px;
+}
+
+.logingOut {
+  padding-top: 30px;
+  margin-top: 60px;
+  margin-bottom: 100px;
 }
 
 .userInstruction {
@@ -151,12 +162,13 @@ header {
   background-color: rgba(46, 46, 31, 0.8);
 }
 
-.title {
+.title, .titleHome {
   font-size: 23px;
-  margin-top: -30px;
+  margin-top: -33px;
   margin-bottom: 5px;
   text-align: right;
   padding-right: 0px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .info {
@@ -183,10 +195,14 @@ header {
 }
 
 @media only screen and (min-width: 500px) {
-  .title {
+  .title, .titleHome {
     font-size: 30px;
     padding-right: 15px;
     margin-top: -40px;
+  }
+
+  .titleHome {
+    margin-top: -50px;
   }
 
   .info {
@@ -195,7 +211,7 @@ header {
 
   .waitIcon {
     height: 200px;
-    width: 200px;
+    width: 250px;
     border-radius: 10px;
     margin-bottom: 100px;
   }
@@ -233,6 +249,11 @@ header {
     height: 40px;
     width: 110px;
     border-radius: 10px;
+  }
+
+  .outButton {
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
 
@@ -273,13 +294,18 @@ header {
     width: 75%;
   }
 
-  .title {
+  .title, .titleHome {
     font-size: 40px;
-    margin-left: auto;
+    margin-left: 20px;
     margin-right: auto;
     margin-top: -50px;
     margin-bottom: 0px;
     text-align: center;
+  }
+
+  .titleHome {
+    margin-top: -60px;
+    padding-bottom: 5px;
   }
 
   .landingTitle {
